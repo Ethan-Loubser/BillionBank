@@ -1,0 +1,27 @@
+
+Savings1 🡹 Savings2  - R 500 
+Savings2 🡻 Savings1  + R500 
+Savings1 🡹 Savings3  - R 1000 
+Savings3 🡻 Savings1  + R1000 
+Savings1 🡹 Savings2  - R 1500 
+Savings2 🡻 Savings1  + R1500 
+Savings1 🡹 Toets4  - R 1500 
+Toets4 🡻 Savings1  + R1500 
+Savings2 🡹 Savings1  - R 500 
+Savings1 🡻 Savings2  + R500 
+Savings2 🡹 Savings1  - R 500 
+Savings1 🡻 Savings2  + R500 
+Savings1 🡹 Savings3  - R 800 
+Savings3 🡻 Savings1  + R800 
+Savings1 🡹 Savings2  - R 500 
+Savings2 🡻 Savings1  + R500 
+Savings1 🡹 Savings2  - R 500 
+Savings2 🡻 Savings1  + R500 
+Savings3 🡹 Savings1  - R 500 
+Savings1 🡻 Savings3  + R500 
+TestAccount 🡹 TestAccount2  - R 50 
+TestAccount2 🡻 TestAccount  + R50 
+Savings1 🡹 Savings2  - R 10 
+Savings2 🡻 Savings1  + R10 
+Savings1 🡹 Savings2  - R 60 
+Savings2 🡻 Savings1  + R60 

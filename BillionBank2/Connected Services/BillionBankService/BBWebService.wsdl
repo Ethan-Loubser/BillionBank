@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://BillionBank.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://BillionBank.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://BillionBank.com/">
+      <s:element name="Sub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenAcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecAcc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SenBal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ref" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecAcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenAcc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RecBal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ref" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quest" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answ" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchDetailsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AccNameFetch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccNameFetchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccNameFetchResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewAccountDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="NewAccountDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewAccountDetailsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccNum" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Card" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccBal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchSenBal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenAcc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchSenBalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchSenBalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchRecBal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecAcc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchRecBalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchRecBalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchAccTrans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchAccTransResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchAccTransResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchUserDetailsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quest" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answ" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignUpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardHolder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardHolderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardHolderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nCard" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardSetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchTranDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TNum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchTranDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchTranDetailsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogINResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Forget">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForgetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForgetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForgAnsw">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Answer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForgAnswResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForgAnswResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwordUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwordUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PwordUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailValidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IDValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Tnum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IDValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDValidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhoneValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TTnum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhoneValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneValidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsDBTrans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenAcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecAcc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amm" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TRef" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsDBTransResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsDBTransResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchProfTran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="profID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchProfTranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchProfTranResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SubSoapIn">
+    <wsdl:part name="parameters" element="tns:Sub" />
+  </wsdl:message>
+  <wsdl:message name="SubSoapOut">
+    <wsdl:part name="parameters" element="tns:SubResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:UserUpdate" />
+  </wsdl:message>
+  <wsdl:message name="UserUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UserUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchDetails" />
+  </wsdl:message>
+  <wsdl:message name="FetchDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccNameFetchSoapIn">
+    <wsdl:part name="parameters" element="tns:AccNameFetch" />
+  </wsdl:message>
+  <wsdl:message name="AccNameFetchSoapOut">
+    <wsdl:part name="parameters" element="tns:AccNameFetchResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewAccountDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:NewAccountDetails" />
+  </wsdl:message>
+  <wsdl:message name="NewAccountDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:NewAccountDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchSenBalSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchSenBal" />
+  </wsdl:message>
+  <wsdl:message name="FetchSenBalSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchSenBalResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchRecBalSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchRecBal" />
+  </wsdl:message>
+  <wsdl:message name="FetchRecBalSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchRecBalResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchAccTransSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchAccTrans" />
+  </wsdl:message>
+  <wsdl:message name="FetchAccTransSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchAccTransResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="FetchUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignUpSoapIn">
+    <wsdl:part name="parameters" element="tns:SignUp" />
+  </wsdl:message>
+  <wsdl:message name="SignUpSoapOut">
+    <wsdl:part name="parameters" element="tns:SignUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="CardHolderSoapIn">
+    <wsdl:part name="parameters" element="tns:CardHolder" />
+  </wsdl:message>
+  <wsdl:message name="CardHolderSoapOut">
+    <wsdl:part name="parameters" element="tns:CardHolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CardSetSoapIn">
+    <wsdl:part name="parameters" element="tns:CardSet" />
+  </wsdl:message>
+  <wsdl:message name="CardSetSoapOut">
+    <wsdl:part name="parameters" element="tns:CardSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchTranDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchTranDetails" />
+  </wsdl:message>
+  <wsdl:message name="FetchTranDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchTranDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogINSoapIn">
+    <wsdl:part name="parameters" element="tns:LogIN" />
+  </wsdl:message>
+  <wsdl:message name="LogINSoapOut">
+    <wsdl:part name="parameters" element="tns:LogINResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForgetSoapIn">
+    <wsdl:part name="parameters" element="tns:Forget" />
+  </wsdl:message>
+  <wsdl:message name="ForgetSoapOut">
+    <wsdl:part name="parameters" element="tns:ForgetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForgAnswSoapIn">
+    <wsdl:part name="parameters" element="tns:ForgAnsw" />
+  </wsdl:message>
+  <wsdl:message name="ForgAnswSoapOut">
+    <wsdl:part name="parameters" element="tns:ForgAnswResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwordUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:PwordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PwordUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:PwordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailValidSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailValid" />
+  </wsdl:message>
+  <wsdl:message name="EmailValidSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDValidSoapIn">
+    <wsdl:part name="parameters" element="tns:IDValid" />
+  </wsdl:message>
+  <wsdl:message name="IDValidSoapOut">
+    <wsdl:part name="parameters" element="tns:IDValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhoneValidSoapIn">
+    <wsdl:part name="parameters" element="tns:PhoneValid" />
+  </wsdl:message>
+  <wsdl:message name="PhoneValidSoapOut">
+    <wsdl:part name="parameters" element="tns:PhoneValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsDBTransSoapIn">
+    <wsdl:part name="parameters" element="tns:InsDBTrans" />
+  </wsdl:message>
+  <wsdl:message name="InsDBTransSoapOut">
+    <wsdl:part name="parameters" element="tns:InsDBTransResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchProfTranSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchProfTran" />
+  </wsdl:message>
+  <wsdl:message name="FetchProfTranSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchProfTranResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BBWebServiceSoap">
+    <wsdl:operation name="Sub">
+      <wsdl:input message="tns:SubSoapIn" />
+      <wsdl:output message="tns:SubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserUpdate">
+      <wsdl:input message="tns:UserUpdateSoapIn" />
+      <wsdl:output message="tns:UserUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDetails">
+      <wsdl:input message="tns:FetchDetailsSoapIn" />
+      <wsdl:output message="tns:FetchDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccNameFetch">
+      <wsdl:input message="tns:AccNameFetchSoapIn" />
+      <wsdl:output message="tns:AccNameFetchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAccountDetails">
+      <wsdl:input message="tns:NewAccountDetailsSoapIn" />
+      <wsdl:output message="tns:NewAccountDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:input message="tns:CreateAccountSoapIn" />
+      <wsdl:output message="tns:CreateAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <wsdl:input message="tns:DeleteAccountSoapIn" />
+      <wsdl:output message="tns:DeleteAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchSenBal">
+      <wsdl:input message="tns:FetchSenBalSoapIn" />
+      <wsdl:output message="tns:FetchSenBalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchRecBal">
+      <wsdl:input message="tns:FetchRecBalSoapIn" />
+      <wsdl:output message="tns:FetchRecBalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAccTrans">
+      <wsdl:input message="tns:FetchAccTransSoapIn" />
+      <wsdl:output message="tns:FetchAccTransSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchUserDetails">
+      <wsdl:input message="tns:FetchUserDetailsSoapIn" />
+      <wsdl:output message="tns:FetchUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignUp">
+      <wsdl:input message="tns:SignUpSoapIn" />
+      <wsdl:output message="tns:SignUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CardHolder">
+      <wsdl:input message="tns:CardHolderSoapIn" />
+      <wsdl:output message="tns:CardHolderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CardSet">
+      <wsdl:input message="tns:CardSetSoapIn" />
+      <wsdl:output message="tns:CardSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTranDetails">
+      <wsdl:input message="tns:FetchTranDetailsSoapIn" />
+      <wsdl:output message="tns:FetchTranDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIN">
+      <wsdl:input message="tns:LogINSoapIn" />
+      <wsdl:output message="tns:LogINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Forget">
+      <wsdl:input message="tns:ForgetSoapIn" />
+      <wsdl:output message="tns:ForgetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ForgAnsw">
+      <wsdl:input message="tns:ForgAnswSoapIn" />
+      <wsdl:output message="tns:ForgAnswSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwordUpdate">
+      <wsdl:input message="tns:PwordUpdateSoapIn" />
+      <wsdl:output message="tns:PwordUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailValid">
+      <wsdl:input message="tns:EmailValidSoapIn" />
+      <wsdl:output message="tns:EmailValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IDValid">
+      <wsdl:input message="tns:IDValidSoapIn" />
+      <wsdl:output message="tns:IDValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhoneValid">
+      <wsdl:input message="tns:PhoneValidSoapIn" />
+      <wsdl:output message="tns:PhoneValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsDBTrans">
+      <wsdl:input message="tns:InsDBTransSoapIn" />
+      <wsdl:output message="tns:InsDBTransSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProfTran">
+      <wsdl:input message="tns:FetchProfTranSoapIn" />
+      <wsdl:output message="tns:FetchProfTranSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BBWebServiceSoap" type="tns:BBWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sub">
+      <soap:operation soapAction="http://BillionBank.com/Sub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://BillionBank.com/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserUpdate">
+      <soap:operation soapAction="http://BillionBank.com/UserUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDetails">
+      <soap:operation soapAction="http://BillionBank.com/FetchDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccNameFetch">
+      <soap:operation soapAction="http://BillionBank.com/AccNameFetch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAccountDetails">
+      <soap:operation soapAction="http://BillionBank.com/NewAccountDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="http://BillionBank.com/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://BillionBank.com/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchSenBal">
+      <soap:operation soapAction="http://BillionBank.com/FetchSenBal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchRecBal">
+      <soap:operation soapAction="http://BillionBank.com/FetchRecBal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAccTrans">
+      <soap:operation soapAction="http://BillionBank.com/FetchAccTrans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchUserDetails">
+      <soap:operation soapAction="http://BillionBank.com/FetchUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignUp">
+      <soap:operation soapAction="http://BillionBank.com/SignUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CardHolder">
+      <soap:operation soapAction="http://BillionBank.com/CardHolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CardSet">
+      <soap:operation soapAction="http://BillionBank.com/CardSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTranDetails">
+      <soap:operation soapAction="http://BillionBank.com/FetchTranDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIN">
+      <soap:operation soapAction="http://BillionBank.com/LogIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Forget">
+      <soap:operation soapAction="http://BillionBank.com/Forget" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForgAnsw">
+      <soap:operation soapAction="http://BillionBank.com/ForgAnsw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwordUpdate">
+      <soap:operation soapAction="http://BillionBank.com/PwordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailValid">
+      <soap:operation soapAction="http://BillionBank.com/EmailValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDValid">
+      <soap:operation soapAction="http://BillionBank.com/IDValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneValid">
+      <soap:operation soapAction="http://BillionBank.com/PhoneValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDBTrans">
+      <soap:operation soapAction="http://BillionBank.com/InsDBTrans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProfTran">
+      <soap:operation soapAction="http://BillionBank.com/FetchProfTran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BBWebServiceSoap12" type="tns:BBWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sub">
+      <soap12:operation soapAction="http://BillionBank.com/Sub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://BillionBank.com/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserUpdate">
+      <soap12:operation soapAction="http://BillionBank.com/UserUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDetails">
+      <soap12:operation soapAction="http://BillionBank.com/FetchDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccNameFetch">
+      <soap12:operation soapAction="http://BillionBank.com/AccNameFetch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAccountDetails">
+      <soap12:operation soapAction="http://BillionBank.com/NewAccountDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap12:operation soapAction="http://BillionBank.com/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap12:operation soapAction="http://BillionBank.com/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchSenBal">
+      <soap12:operation soapAction="http://BillionBank.com/FetchSenBal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchRecBal">
+      <soap12:operation soapAction="http://BillionBank.com/FetchRecBal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAccTrans">
+      <soap12:operation soapAction="http://BillionBank.com/FetchAccTrans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchUserDetails">
+      <soap12:operation soapAction="http://BillionBank.com/FetchUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignUp">
+      <soap12:operation soapAction="http://BillionBank.com/SignUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CardHolder">
+      <soap12:operation soapAction="http://BillionBank.com/CardHolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CardSet">
+      <soap12:operation soapAction="http://BillionBank.com/CardSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTranDetails">
+      <soap12:operation soapAction="http://BillionBank.com/FetchTranDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIN">
+      <soap12:operation soapAction="http://BillionBank.com/LogIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Forget">
+      <soap12:operation soapAction="http://BillionBank.com/Forget" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForgAnsw">
+      <soap12:operation soapAction="http://BillionBank.com/ForgAnsw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwordUpdate">
+      <soap12:operation soapAction="http://BillionBank.com/PwordUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailValid">
+      <soap12:operation soapAction="http://BillionBank.com/EmailValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDValid">
+      <soap12:operation soapAction="http://BillionBank.com/IDValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneValid">
+      <soap12:operation soapAction="http://BillionBank.com/PhoneValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDBTrans">
+      <soap12:operation soapAction="http://BillionBank.com/InsDBTrans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProfTran">
+      <soap12:operation soapAction="http://BillionBank.com/FetchProfTran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BBWebService">
+    <wsdl:port name="BBWebServiceSoap" binding="tns:BBWebServiceSoap">
+      <soap:address location="https://localhost:44343/BBWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BBWebServiceSoap12" binding="tns:BBWebServiceSoap12">
+      <soap12:address location="https://localhost:44343/BBWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
