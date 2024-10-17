@@ -31,14 +31,10 @@ The Billion Bank Web Application’s purpose is to allow Users to manage their B
 
 
 1.3 Key Features
-•	LogIn
-The LogIn feature is the most important feature as this verifies that the user is a registered Billion Bank customer and only after the user have logged in can any of the other features be used.
-•	SignUp
-A user can have one profile and create as many Accounts as necessary which will be linked to their profile.
-•	Payment
-Payment’s can be made between a user’s accounts using the Payment feature. Each transaction will be recorded in a transaction log which can be viewed by the user on the Home page or the Summary page for a broader more detailed version.
-•	Create account
-A user may own multiple accounts and can create a new account by simply providing a name in the Account name TextBox on the Home Page and clicking the Create Account button. A new account will then be created if an account with that name doesn’t already exist. Each new User will be rewarder with a R100 sign up reward directly deposited into their first account upon creation.
+•	LogIn - The LogIn feature is the most important feature as this verifies that the user is a registered Billion Bank customer and only after the user have logged in can any of the other features be used.
+•	SignUp - A user can have one profile and create as many Accounts as necessary which will be linked to their profile.
+•	Payment - Payment’s can be made between a user’s accounts using the Payment feature. Each transaction will be recorded in a transaction log which can be viewed by the user on the Home page or the Summary page for a broader more detailed version.
+•	Create account - A user may own multiple accounts and can create a new account by simply providing a name in the Account name TextBox on the Home Page and clicking the Create Account button. A new account will then be created if an account with that name doesn’t already exist. Each new User will be rewarder with a R100 sign up reward directly deposited into their first account upon creation.
 
 
 2. System Architecture
@@ -54,7 +50,7 @@ Pages:
 -	Payment.aspx
 -	Forget.aspx
 Master Page:
--	BB2Template.master
+- 	BB2Template.master
 User Control:
 -	BB2Header.ascx
 Web Service:
